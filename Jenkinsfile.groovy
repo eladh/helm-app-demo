@@ -3,7 +3,7 @@ rtFullUrl = server.url
 
 podTemplate(label: 'helm-template' , cloud: 'k8s' , containers: [
         containerTemplate(name: 'jfrog-cli', image: 'docker.bintray.io/jfrog/jfrog-cli-go:latest', command: 'cat', ttyEnabled: true) ,
-        containerTemplate(name: 'helm', image: 'alpine/helm:latest', command: 'cat', ttyEnabled: true) ]) {
+        containerTemplate(name: 'helm', image: 'alpine/helm:2.13.1', command: 'cat', ttyEnabled: true) ]) {
 
     node('helm-template') {
         stage('Build Chart & push it to Artifactory') {
